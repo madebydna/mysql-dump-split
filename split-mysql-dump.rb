@@ -89,7 +89,7 @@ if File.exist?(dumpfile)
           outfile.syswrite("USE `#{db}`;\n\n")
         end
       end
-    elsif line =~ /^-- Current Database: .(.+)./ or line =~ /\s+Database: .(.+)./
+    elsif line =~ /^-- Current Database: .(.+)./ or line =~ /\s+Database:\s\W?(.+)\W?/
       db = $1
       table = nil
       outfile.close if outfile and !outfile.closed?
